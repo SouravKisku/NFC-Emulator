@@ -1,0 +1,12 @@
+R_DEF: Internal format may change without notice
+local
+id btnEmulate
+id btnRead
+id btnSave
+id spinnerCards
+id tvStatus
+layout activity_main
+string app_name
+style AppTheme
+xml apduservice
+xml nfc_tech_filter

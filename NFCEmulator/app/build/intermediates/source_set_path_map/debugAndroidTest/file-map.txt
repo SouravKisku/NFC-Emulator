@@ -1,0 +1,4 @@
+com.nfc.emulator.test.app-androidTest-0 C:\Users\Soura\Downloads\NFCEmulator\NFCEmulator\app\build\generated\res\resValues\androidTest\debug
+com.nfc.emulator.test.app-mergeDebugAndroidTestResources-1 C:\Users\Soura\Downloads\NFCEmulator\NFCEmulator\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.nfc.emulator.test.app-mergeDebugAndroidTestResources-2 C:\Users\Soura\Downloads\NFCEmulator\NFCEmulator\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.nfc.emulator.test.app-merged_res-3 C:\Users\Soura\Downloads\NFCEmulator\NFCEmulator\app\build\intermediates\merged_res\debugAndroidTest
