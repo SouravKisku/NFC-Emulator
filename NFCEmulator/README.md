@@ -21,7 +21,7 @@ A simple Android application that allows you to read, store, and emulate NFC car
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/NFCEmulator.git
+    git clone https://github.com/SouravKisku/NFC-Emulator.git
     ```
 2.  Open the project in **Android Studio**.
 3.  Build and run the app on your physical NFC-enabled Android device.
