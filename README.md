@@ -2,69 +2,60 @@
 
 A simple Android application that allows you to read, store, and emulate NFC cards using Host Card Emulation (HCE).
 
+## Important Notice
+
+⚠️ **Current Repository Status**
+
+This branch contains the project ZIP and reference files. The **latest and most up-to-date source code is available in the `master` branch**.
+
+⚠️ **Limitations**
+
+This application is intended for educational and research purposes only. It can read NFC card information and emulate basic card data through Android HCE, but it **cannot fully clone secure NFC cards**.
+
+Currently, the application primarily works with card identifiers (UID) and limited publicly accessible data. Most modern NFC cards, payment cards, transport cards, and access-control cards use cryptographic authentication and secure challenge-response mechanisms that cannot be duplicated by simply copying the UID.
+
 ## Features
 
-*   **Read NFC Cards:** Supports various NFC technologies including IsoDep, Mifare Classic, Mifare Ultralight, and NDEF.
-*   **Store Cards:** Save scanned card data (UID and a snippet of content) locally on your device with custom names.
-*   **Emulate Cards:** Emulate stored card data using Android's Host Card Emulation (HCE) capabilities.
-*   **Modern UI:** Simple interface built with Material Components.
+* **Read NFC Cards:** Supports various NFC technologies including IsoDep, Mifare Classic, Mifare Ultralight, and NDEF.
+* **Store Cards:** Save scanned card data locally on your device with custom names.
+* **Basic Emulation:** Emulate stored card information through Android Host Card Emulation (HCE).
+* **Modern UI:** Simple interface built with Material Components.
 
-## Prerequisites
+## Project Status
 
-*   An Android device with **NFC hardware**.
-*   Android 5.0 (API level 21) or higher.
-*   For Emulation: The device must support **Host Card Emulation (HCE)**.
+🚧 **Under Development**
 
-## Getting Started
+Work is currently in progress to improve emulation capabilities and APDU handling.
 
-### Installation
+One of the major challenges is support for cards that require valid cryptographic authentication and dynamic challenge-response communication. These cards cannot be fully replicated using standard Android HCE alone.
 
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/SouravKisku/NFC-Emulator.git
-    ```
-2.  Open the project in **Android Studio**.
-3.  Build and run the app on your physical NFC-enabled Android device.
+Future development is focused on:
 
-### How to Use
+* Improved APDU command handling
+* Better reader compatibility
+* Enhanced emulation logic
+* Research into secure card communication workflows
 
-#### 1. Reading a Card
-1.  Open the app.
-2.  Tap the **Read Card** button. The status will change to "Tap a card to read...".
-3.  Hold your NFC card against the back of your phone.
-4.  Once read, the app will display the card's UID and some technology details.
+## Security Note
 
-#### 2. Saving a Card
-1.  After successfully reading a card, tap the **Save** button.
-2.  Enter a name for the card in the dialog.
-3.  The card will be added to your saved list.
+This app is for **educational purposes only**.
 
-#### 3. Emulating a Card
-1.  Select a card from the dropdown menu (Spinner).
-2.  Tap the **Emulate** button.
-3.  The status will show "Emulating: [Card Name]".
-4.  Hold your phone near an NFC reader. The phone will act as the selected card.
-    *   *Note: Emulation works via HCE and currently uses a sample AID (`F0010203040506`) as defined in `apduservice.xml`.*
+Many NFC systems rely on:
 
-## Project Structure
+* Cryptographic keys
+* Secure elements
+* Dynamic challenge-response authentication
+* Backend verification systems
 
-*   `MainActivity.java`: Handles the UI, NFC foreground dispatch for reading tags, and managing the card store.
-*   `HceService.java`: Extends `HostApduService` to handle NFC reader requests while the app is in emulation mode.
-*   `CardStore.java`: A helper class that manages saving and retrieving card data using `SharedPreferences` and JSON.
-*   `AndroidManifest.xml`: Defines necessary NFC permissions and registers the HCE service.
-*   `res/xml/apduservice.xml`: Configuration for the HCE service, including the Application Identifier (AID) filters.
+Because of these security mechanisms, a successful read of a card does **not** mean the card can be fully cloned or emulated. In most cases, only publicly available information such as the UID can be reproduced.
 
-## Technical Details
+## Disclaimer
 
-### NFC Technologies Supported
-The app attempts to read data using several tech-specific methods:
-*   **IsoDep:** Tries to select the PPSE (Proximity Payment System Environment) for payment cards.
-*   **MifareClassic / MifareUltralight:** Reads the first block or pages using default keys.
-*   **NDEF:** Reads the standard NDEF message if present.
+This project does not bypass security mechanisms and is not intended to duplicate secure payment cards, transit cards, or access-control systems. Any emulation functionality provided is limited by Android HCE capabilities and the security features implemented by the original card issuer.
 
-### Security Note
-This app is for **educational purposes only**. Emulating encrypted or secure cards (like credit cards or secure access badges) usually requires cryptographic keys and secure elements which are not accessible via standard HCE without specific authorization and hardware support.
 
-## License
+## Screenshot
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Screenshot
+
+![NFC Emulator Screenshot](images/NFC-emulator.jpeg)
